@@ -19,4 +19,6 @@ def anagram_difference(w1, w2):
 
     return  len(w1) + len(w2) - sum(matched_letters_count.values()) * 2 # the number of characters to remove from w1 and w2 to make them anagrams of each other
 
+
+# Should print 10
 print(anagram_difference('codewars', 'hackerrank'))
