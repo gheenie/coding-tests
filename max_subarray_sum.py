@@ -1,14 +1,18 @@
 def max_sequence(arr):
     max_sum = 0
     
-    for subarray_length in range(1, len(arr) + 1):
-        for i in range(len(arr) - subarray_length + 1):
-            current_sum = sum(arr[i:i + subarray_length])
+    for subarray_length in range(2, len(arr) + 1):
+        current_sum = sum(arr[:subarray_length])
+        
+        if current_sum > max_sum:
+            max_sum = current_sum
+        
+        for i in range(len(arr) - subarray_length):
+            current_sum -= arr[i]
+            current_sum += arr[i + subarray_length]
+            
             if current_sum > max_sum:
                 max_sum = current_sum
-    
-    # Possible optimisation: subtract front element, add next element
-    # current_sum
     
     return max_sum
 
