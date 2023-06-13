@@ -1,6 +1,5 @@
 def max_sequence(arr):
     max_sum = 0
-    # current_sum = arr[0]
     
     for subarray_length in range(1, len(arr) + 1):
         current_sum = sum(arr[:subarray_length])
