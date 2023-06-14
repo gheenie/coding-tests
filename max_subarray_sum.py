@@ -1,17 +1,26 @@
 def max_sequence(arr):
-    max_sum = 0
+    # stepped_additions = [0]
     
-    for i in range(len(arr)):
-        j = i
-        current_sum = 0
+    # for element in arr:
+    #     stepped_additions.append(stepped_additions[-1] + element)
 
-        while j != len(arr):
-            current_sum += arr[j]
-            
-            if current_sum > max_sum:
-                max_sum = current_sum
-            
-            j += 1
+    current_sum = 0
+    max_sum = 0
+    index_max_sum = -1
+    for i, element in enumerate(arr):
+        current_sum += element
+        if current_sum > max_sum:
+            max_sum = current_sum
+            index_max_sum = i
+
+    if index_max_sum == -1:
+        return 0
+
+    current_sum = max_sum
+    for i in range(index_max_sum + 1):
+        current_sum -= arr[i]
+        if current_sum > max_sum:
+            max_sum = current_sum
     
     return max_sum
 
